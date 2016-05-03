@@ -104,7 +104,7 @@ module FogDriver
       :ssh_timeout => 20
     }
 
-    RETRYABLE_ERRORS = [Fog::Compute::AWS::Error]
+    RETRYABLE_ERRORS = [Fog::Errors::Error, Fog::Errors::TimeoutError]
     RETRYABLE_OPTIONS = { tries: 12, sleep: 5, on: RETRYABLE_ERRORS }
 
     class << self
